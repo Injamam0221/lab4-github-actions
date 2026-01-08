@@ -1,0 +1,16 @@
+name: OWASP ZAP Scan
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: zaproxy/action-baseline@v0.10.0
+        with:
+          target: 'https://YOUR-USERNAME.github.io/lab4-github-actions/'
